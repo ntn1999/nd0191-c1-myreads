@@ -1,44 +1,58 @@
-# MyReads Project
+# MyReads Project Readme
 
-This is the starter template for the final assessment project for Udacity's React Fundamentals course. The goal of this template is to save you time by providing a static example of the CSS and HTML markup that may be used, but without any of the React code that is needed to complete the project. If you choose to start with this template, your job will be to add interactivity to the app by refactoring the static code in this template.
+## Project Overview
 
-Of course, you are free to start this project from scratch if you wish! Just be sure to use [Create React App](https://reactjs.org/docs/create-a-new-react-app.html) to bootstrap the project.
+The MyReads project is an interactive bookshelf app that allows users to organize and categorize their books. This app is built using React and provides a server and client library for persisting book information as users interact with the application.
 
-## TL;DR
+## App Functionality
 
-To get started developing right away:
+### Main Page
 
-- install all project dependencies with `npm install`
-- start the development server with `npm start`
+The main page of the MyReads app displays a list of "shelves," which represent categories of books. There are three default shelves:
 
-## What You're Getting
+1. **Currently Reading**: Books you are currently reading.
+2. **Want to Read**: Books you want to read in the future.
+3. **Read**: Books you have already read.
 
-```bash
-├── CONTRIBUTING.md
-├── README.md - This file.
-├── SEARCH_TERMS.md # The whitelisted short collection of available search terms for you to use with your app.
-├── package.json # npm package manager file. It's unlikely that you'll need to modify this.
-├── public
-│   ├── favicon.ico # React Icon, You may change if you wish.
-│   └── index.html # DO NOT MODIFY
-└── src
-    ├── App.css # Styles for your app. Feel free to customize this as you desire.
-    ├── App.js # This is the root of your app. Contains static HTML right now.
-    ├── App.test.js # Used for testing. Provided with Create React App. Testing is encouraged, but not required.
-    ├── BooksAPI.js # A JavaScript API for the provided Udacity backend. Instructions for the methods are below.
-    ├── icons # Helpful images for your app. Use at your discretion.
-    │   ├── add.svg
-    │   ├── arrow-back.svg
-    │   └── arrow-drop-down.svg
-    ├── index.css # Global styles. You probably won't need to change anything here.
-    └── index.js # You should not need to modify this file. It is used for DOM rendering only.
+Each book on the main page has a control that enables you to select the shelf for that book. When you choose a different shelf, the book is automatically moved to that category. The default value for the control is always set to the current shelf that the book is in.
+
+### Search Page
+
+The app also includes a search page accessible via a link on the main page. On the search page, you can search for books to add to your library. The search page features:
+
+- A text input for entering search queries.
+- Real-time updates: As you type in the search input, books matching your query are displayed on the page.
+- A control that allows you to add a book from the search results to your library.
+
+To maintain a consistent user interface, some of the code used to display books on the main page is reused for the search page. When a book is added to your library from the search page, its state remains consistent between the main application page and the search page.
+
+### Navigation
+The main page also has a link to /search, a search page that allows you to find books to add to your library.
+The search page provides a link to the root URL ("/"), which allows you to return to the main page quickly. When you navigate back to the main page from the search page, you will instantly see all the selections you made on the search page in your library.
+
+## Project Setup
+
+1. Clone the project.
+
+```
+git clone https://github.com/ntn1999/nd0191-c1-myreads.git
 ```
 
-Remember that good React design practice is to create new JS files for each component and use import/require statements to include them where they are needed.
+2. Install the dependencies.
 
+```
+cd to the nd0191-c1-myreads/starter directory
+npm install
+```
+
+3. Start the application.
+
+```
+npm start
+```
 ## Backend Server
 
-To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
+To simplify your development process, we've provided a backend server for you to develop against. The provided file [`BooksAPI.js`](src/utils/BooksAPI.js) contains the methods you will need to perform necessary operations on the backend:
 
 - [`getAll`](#getall)
 - [`update`](#update)
@@ -83,12 +97,3 @@ search(query);
 
 The backend API uses a fixed set of cached search results and is limited to a particular set of search terms, which can be found in [SEARCH_TERMS.md](SEARCH_TERMS.md). That list of terms are the _only_ terms that will work with the backend, so don't be surprised if your searches for Basket Weaving or Bubble Wrap don't come back with any results.
 
-## Create React App
-
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app). You can find more information on how to perform common tasks [here](https://github.com/facebook/create-react-app/blob/main/packages/cra-template/template/README.md).
-
-## Contributing
-
-This repository is the starter code for _all_ Udacity students. Therefore, we most likely will not accept pull requests.
-
-For details, check out [CONTRIBUTING.md](CONTRIBUTING.md).
